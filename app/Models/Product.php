@@ -10,6 +10,7 @@ class Product extends Model
 {
     use HasFactory, SoftDeletes;
 
+
     /**
      * The attributes that are mass assignable.
      *

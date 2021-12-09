@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Livewire\Category;
+use App\Http\Livewire\Product;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/category', Category::class)->name('category');
+    Route::get('/product', Product::class)->name('product');
+});
