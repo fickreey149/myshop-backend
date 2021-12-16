@@ -10,12 +10,6 @@ class Product extends Model
 {
     use HasFactory, SoftDeletes;
 
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
     protected $fillable = [
         'name',
         'price',
@@ -26,11 +20,11 @@ class Product extends Model
 
     public function galleries()
     {
-        $this->hasMany(ProductGallery::class, 'products_id', 'id');
+        return $this->hasMany(ProductGallery::class, 'products_id', 'id');
     }
 
     public function category()
     {
-        $this->belongsTo(ProductCategory::class, 'categories_id', 'id');
+        return $this->belongsTo(ProductCategory::class, 'categories_id', 'id');
     }
 }
