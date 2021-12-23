@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Livewire\Category;
-use App\Http\Livewire\Product;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +20,18 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/category', Category::class)->name('category');
-    Route::get('/product', Product::class)->name('product');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/categories', function () {
+        return view('admin.categories');
+    })->name('categories');
+
+    Route::get('/products', function () {
+        return view('admin.products');
+    })->name('products');
+    Route::get('/transactions', function () {
+        return view('admin.transactions');
+    })->name('transactions');
 });

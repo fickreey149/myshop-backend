@@ -11,11 +11,6 @@ class ProductGallery extends Model
 {
     use HasFactory, SoftDeletes;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
     protected $fillable = [
         'products_id',
         'url',

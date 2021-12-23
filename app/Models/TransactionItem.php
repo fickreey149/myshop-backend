@@ -9,11 +9,6 @@ class TransactionItem extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
     protected $fillable = [
         'users_id',
         'products_id',
@@ -23,6 +18,6 @@ class TransactionItem extends Model
 
     public function product()
     {
-        $this->hasOne(Product::class, 'id', 'products_id');
+        return $this->hasOne(Product::class, 'id', 'products_id');
     }
 }

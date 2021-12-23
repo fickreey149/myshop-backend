@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Helpers\ResponseFormatter;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
